@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://7wxfbdedilxt"]
+
+[ext_resource type="Script" uid="uid://davxm48mmrcip" path="res://src/entities/game/pipe/pipe_mover.gd" id="1_e3hex"]
+[ext_resource type="PackedScene" uid="uid://dlj7j2vkfwcu4" path="res://src/entities/game/pipe/pipe.tscn" id="1_m2bs7"]
+[ext_resource type="Script" uid="uid://mqxtyre1u5qa" path="res://src/entities/game/pipe/random_pipe_distance.gd" id="2_000v6"]
+[ext_resource type="Script" uid="uid://d4k7f0xec83gd" path="res://src/entities/game/pipe/scoring_area.gd" id="2_m2bs7"]
+[ext_resource type="AudioStream" uid="uid://cuebfdggbhr5q" path="res://assets/sounds/Add Score.wav" id="5_iq1ka"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_000v6"]
+a = Vector2(0, -35)
+b = Vector2(0, 35)
+
+[node name="PipePair" type="Node2D" unique_id=487589912]
+physics_interpolation_mode = 1
+script = ExtResource("1_e3hex")
+move_speed = 100.0
+
+[node name="PipeColliders" type="Node2D" parent="." unique_id=1244344511 node_paths=PackedStringArray("top_pipe", "bottom_pipe", "scoring_area_shape")]
+script = ExtResource("2_000v6")
+top_pipe = NodePath("PipeTop")
+bottom_pipe = NodePath("PipeBottom")
+scoring_area_shape = NodePath("ScoringArea2D/CollisionShape2D")
+
+[node name="PipeTop" parent="PipeColliders" unique_id=1614854623 instance=ExtResource("1_m2bs7")]
+position = Vector2(0, -35)
+scale = Vector2(1, -1)
+
+[node name="PipeBottom" parent="PipeColliders" unique_id=1673840039 instance=ExtResource("1_m2bs7")]
+position = Vector2(0, 35)
+
+[node name="ScoringArea2D" type="Area2D" parent="PipeColliders" unique_id=314693664 node_paths=PackedStringArray("stream_player")]
+collision_layer = 4
+script = ExtResource("2_m2bs7")
+stream_player = NodePath("AudioStreamPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeColliders/ScoringArea2D" unique_id=1395782116]
+position = Vector2(-3, 0)
+shape = SubResource("SegmentShape2D_000v6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PipeColliders/ScoringArea2D" unique_id=1826415101]
+stream = ExtResource("5_iq1ka")
+volume_db = -8.0
+bus = &"Sounds"
+
+[node name="AliveTimer" type="Timer" parent="." unique_id=1660615025]
+wait_time = 15.0
+autostart = true
+
+[connection signal="body_exited" from="PipeColliders/ScoringArea2D" to="PipeColliders/ScoringArea2D" method="_on_body_exited"]
+[connection signal="timeout" from="AliveTimer" to="." method="_on_alive_timer_timeout"]

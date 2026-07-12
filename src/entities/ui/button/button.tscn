@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b52cbuy4efebh"]
+
+[ext_resource type="AudioStream" uid="uid://g8hkv4iq548w" path="res://assets/sounds/Button Press.mp3" id="1_ce1wq"]
+[ext_resource type="Script" uid="uid://dfgfhr6q5tta1" path="res://src/entities/ui/_common/ui_sound_player.gd" id="2_vmh85"]
+
+[node name="Button" type="Button" unique_id=1312087119]
+text = "Text"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1195193395 node_paths=PackedStringArray("node")]
+stream = ExtResource("1_ce1wq")
+bus = &"Sounds"
+script = ExtResource("2_vmh85")
+node = NodePath("..")
+signal_names = Array[StringName]([&"button_down", &"mouse_entered"])

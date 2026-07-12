@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://kxp50d68a6pr"]
+
+[ext_resource type="Script" uid="uid://bdiiy5w88xv0e" path="res://src/entities/globals/crossfade/crossfade.gd" id="1_mu2fu"]
+
+[node name="CrossfadeCanvasLayer" type="CanvasLayer" unique_id=895610716]
+process_mode = 3
+layer = 999
+script = ExtResource("1_mu2fu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=407200705]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

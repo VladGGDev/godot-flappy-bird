@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuebfdggbhr5q"
+path="res://.godot/imported/Add Score.wav-e4b71920ab850e134e01706cd9e1ac60.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Add Score.wav"
+dest_files=["res://.godot/imported/Add Score.wav-e4b71920ab850e134e01706cd9e1ac60.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

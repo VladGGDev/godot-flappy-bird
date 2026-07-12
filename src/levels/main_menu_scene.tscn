@@ -1,0 +1,503 @@
+[gd_scene format=3 uid="uid://dvbqg2rwfa10a"]
+
+[ext_resource type="PackedScene" uid="uid://8di8ked54anj" path="res://src/entities/ui/menus/main_menu.tscn" id="1_f881q"]
+[ext_resource type="Texture2D" uid="uid://b6ti5x4ronbb2" path="res://assets/sprites/Pipe.png" id="1_ymi8p"]
+[ext_resource type="Texture2D" uid="uid://rsd8m3w6jicl" path="res://assets/sprites/Cloud.png" id="2_0tvwq"]
+[ext_resource type="Texture2D" uid="uid://cydssc8c3fene" path="res://assets/sprites/Bird.png" id="3_tsyp5"]
+
+[sub_resource type="Animation" id="Animation_ymi8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Pipes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(189, 342)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Pipes:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.08726646]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Bird:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48.000004, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Bird:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Bird/EyeSocket:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Bird/Eye:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Bird/Eye:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11.603747, -0.53709686)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Bird/Eye:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5235988]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprites/Cloud:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(204.99998, 293.99997)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprites/Cloud2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30.999996, -93)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/MainMenu:offset_transform_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/MainMenu:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qr1ea"]
+resource_name = "intro"
+length = 3.0000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Pipes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(189, 342), Vector2(189, 342)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Pipes:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 3),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [1.5707964, 0.08726646]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Bird:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.26794344, 1),
+"update": 0,
+"values": [Vector2(-136, 241), Vector2(48.000004, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Bird:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.26794344, 1),
+"update": 0,
+"values": [-1.3089969, -0.2617994]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Bird/EyeSocket:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprites/Bird/Eye:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/Bird/Eye:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.4, 3),
+"transitions": PackedFloat32Array(0.48296815, 1),
+"update": 0,
+"values": [Vector2(8.817926, -1.8044568), Vector2(11.603747, -0.53709686)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/Bird/Eye:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.4, 3),
+"transitions": PackedFloat32Array(0.48296815, 1),
+"update": 0,
+"values": [0.2617994, 0.5235988]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprites/Cloud:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.2253126, 1),
+"update": 0,
+"values": [Vector2(196.99998, 377), Vector2(204.99998, 293.99997)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprites/Cloud2:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 1.5),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(-61.000004, -172), Vector2(30.999996, -93)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/MainMenu:offset_transform_scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 2, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(5, 5), Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/MainMenu:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.474539, 1.5175279, 2.1),
+"transitions": PackedFloat32Array(1, 0.19614594, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kinjj"]
+_data = {
+&"RESET": SubResource("Animation_ymi8p"),
+&"intro": SubResource("Animation_qr1ea")
+}
+
+[sub_resource type="Animation" id="Animation_0tvwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Cloud2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Cloud:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Bird/Eye:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5235988]
+}
+
+[sub_resource type="Animation" id="Animation_tsyp5"]
+resource_name = "rotation"
+length = 10.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Cloud2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.2831855, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Cloud:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.2831855, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Bird/Eye:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.5235988, 0.6981317007977318, 0.5235988, 0.6981317007977318, 0.5235988, 0.6981317007977318, 0.5235988, 0.6981317007977318, 0.5235988, 0.6981317007977318]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whpeu"]
+_data = {
+&"RESET": SubResource("Animation_0tvwq"),
+&"rotation": SubResource("Animation_tsyp5")
+}
+
+[node name="MainMenuScene" type="Node2D" unique_id=1097022194]
+
+[node name="Sprites" type="Node2D" parent="." unique_id=1018514942]
+
+[node name="Pipes" type="Node2D" parent="Sprites" unique_id=926136875]
+position = Vector2(189, 342)
+rotation = 0.08726646
+metadata/_edit_group_ = true
+
+[node name="Pipe" type="Sprite2D" parent="Sprites/Pipes" unique_id=280437472]
+z_index = -1
+position = Vector2(0.7842245, -10.160824)
+scale = Vector2(2.4476743, 2.4476743)
+texture = ExtResource("1_ymi8p")
+
+[node name="Pipe2" type="Sprite2D" parent="Sprites/Pipes" unique_id=1901507656]
+z_index = -1
+position = Vector2(0.7842231, -410.16083)
+rotation = -3.1415927
+scale = Vector2(2.4476743, 2.4476743)
+texture = ExtResource("1_ymi8p")
+
+[node name="Bird" type="Sprite2D" parent="Sprites" unique_id=1715162953]
+z_index = 1
+position = Vector2(48.000004, 160)
+rotation = -0.2617994
+scale = Vector2(7.94988, 7.94988)
+texture = ExtResource("3_tsyp5")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Eye" type="Sprite2D" parent="Sprites/Bird" unique_id=604695162]
+z_index = 2
+position = Vector2(11.603747, -0.53709686)
+rotation = 0.5235988
+texture = ExtResource("3_tsyp5")
+region_enabled = true
+region_rect = Rect2(16, 0, 8, 8)
+
+[node name="EyeSocket" type="Sprite2D" parent="Sprites/Bird" unique_id=757577527]
+modulate = Color(0.77621365, 0.13286781, 0.13286781, 1)
+position = Vector2(4.006483, -2.0038812)
+rotation = -3.1415927
+scale = Vector2(1.0026692, 1.0026692)
+texture = ExtResource("3_tsyp5")
+region_enabled = true
+region_rect = Rect2(24, 16, 7.99135, 8)
+
+[node name="Cloud" type="Sprite2D" parent="Sprites" unique_id=2003115456]
+position = Vector2(204.99998, 293.99997)
+rotation = 6.2831855
+scale = Vector2(2.2999654, 2.2999654)
+texture = ExtResource("2_0tvwq")
+
+[node name="Cloud2" type="Sprite2D" parent="Sprites" unique_id=1861960232]
+position = Vector2(30.999996, -93)
+rotation = 6.2831855
+scale = Vector2(4.8649025, 4.8649025)
+texture = ExtResource("2_0tvwq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1234366732]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=657308462]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=709507485 instance=ExtResource("1_f881q")]
+offset_transform_enabled = true
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1134537368]
+libraries/ = SubResource("AnimationLibrary_kinjj")
+autoplay = &"intro"
+
+[node name="ForeverAnimation" type="AnimationPlayer" parent="." unique_id=1204134016]
+libraries/ = SubResource("AnimationLibrary_whpeu")
+autoplay = &"rotation"

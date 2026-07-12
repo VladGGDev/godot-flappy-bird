@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://enka6wakk8k7"]
+
+[ext_resource type="Script" uid="uid://br1ibuo3rgg6y" path="res://src/entities/game/bird/bird.gd" id="1_3po83"]
+[ext_resource type="Texture2D" uid="uid://cydssc8c3fene" path="res://assets/sprites/Bird.png" id="1_kqhkv"]
+[ext_resource type="PackedScene" uid="uid://d3old0fdjs3h6" path="res://src/entities/game/bird_death_effect/bird_death_effect.tscn" id="2_2acvw"]
+[ext_resource type="AudioStream" uid="uid://dlifphre3dk16" path="res://assets/sounds/Flap.wav" id="4_sxcig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3po83"]
+radius = 6.0
+
+[node name="Bird" type="RigidBody2D" unique_id=1972836256 node_paths=PackedStringArray("flap_sound_player")]
+process_priority = -100
+z_index = 99
+collision_mask = 7
+can_sleep = false
+lock_rotation = true
+freeze = true
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_3po83")
+death_scene = ExtResource("2_2acvw")
+flap_sound_player = NodePath("AudioStreamPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1029068050]
+position = Vector2(1, -1)
+texture = ExtResource("1_kqhkv")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1338729831]
+shape = SubResource("CircleShape2D_3po83")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=795869079]
+stream = ExtResource("4_sxcig")
+volume_db = -5.0

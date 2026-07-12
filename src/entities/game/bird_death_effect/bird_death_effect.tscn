@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://d3old0fdjs3h6"]
+
+[ext_resource type="Script" uid="uid://dt3kfbirelj5x" path="res://src/entities/game/bird_death_effect/explosion.gd" id="1_g2fdo"]
+[ext_resource type="PackedScene" uid="uid://87rk3y13imsh" path="res://src/entities/game/bird_death_effect/eye.tscn" id="1_w2wml"]
+[ext_resource type="PackedScene" uid="uid://bav253dscjg5d" path="res://src/entities/game/bird_death_effect/meat.tscn" id="2_g2fdo"]
+[ext_resource type="PackedScene" uid="uid://mhpxfvpk4kyi" path="res://src/entities/game/bird_death_effect/meat_2.tscn" id="3_r8rko"]
+[ext_resource type="PackedScene" uid="uid://51b22tgfxbfe" path="res://src/entities/game/bird_death_effect/meat_3.tscn" id="4_8173d"]
+[ext_resource type="PackedScene" uid="uid://dm7gvfcdccdf1" path="res://src/entities/game/bird_death_effect/meat_4.tscn" id="5_xupsk"]
+[ext_resource type="PackedScene" uid="uid://b5fawmqfov7dw" path="res://src/entities/game/bird_death_effect/beak.tscn" id="6_auehf"]
+[ext_resource type="PackedScene" uid="uid://dnt5dkj6k8g8g" path="res://src/entities/game/bird_death_effect/beak_2.tscn" id="7_6tvt2"]
+[ext_resource type="Texture2D" uid="uid://cydssc8c3fene" path="res://assets/sprites/Bird.png" id="8_fo180"]
+[ext_resource type="Script" uid="uid://dgeng62gq8m4h" path="res://src/entities/game/particles/auto_start_particles.gd" id="10_r8rko"]
+[ext_resource type="AudioStream" uid="uid://bjofw4eq0fhpi" path="res://assets/sounds/Death.wav" id="11_xupsk"]
+[ext_resource type="AudioStream" uid="uid://devl84ma77elq" path="res://assets/sounds/Blood Splatter.wav" id="12_auehf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pipv8"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dpi7"]
+atlas = ExtResource("8_fo180")
+region = Rect2(0, 24, 16, 8)
+
+[sub_resource type="Curve" id="Curve_uvbjl"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, -15.520698, 0, 0, Vector2(0.1240876, 1.0196078), -1.97936, -1.97936, 0, 0, Vector2(1, 0.39215684), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_63y1n"]
+curve = SubResource("Curve_uvbjl")
+
+[sub_resource type="Curve" id="Curve_fq634"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.9051095, 1), 0.0, -0.052831333, 1, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vbprc"]
+curve = SubResource("Curve_fq634")
+
+[sub_resource type="Curve" id="Curve_r8rko"]
+_data = [Vector2(0, 0), 0.0, 2.2948081, 0, 0, Vector2(0.090909086, 0.8768606), 0.6487646, 0.6487646, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8173d"]
+texture_mode = 1
+curve = SubResource("Curve_r8rko")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5cm5d"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 2
+emission_sphere_radius = 8.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, -1, 0)
+spread = 150.0
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = -20.000015
+angular_velocity_max = 19.999983
+angular_velocity_curve = SubResource("CurveTexture_63y1n")
+gravity = Vector3(0, 50, 0)
+linear_accel_min = -25.000002
+linear_accel_max = 24.999998
+damping_min = 0.5
+damping_max = 3.0000002
+attractor_interaction_enabled = false
+scale_curve = SubResource("CurveTexture_vbprc")
+anim_speed_min = 1.0
+anim_speed_max = 7.75
+anim_offset_max = 1.0
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(1, 0, 1)
+turbulence_noise_speed_random = 0.01
+turbulence_influence_min = 0.025
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 100.0
+turbulence_influence_over_life = SubResource("CurveTexture_8173d")
+
+[sub_resource type="Curve" id="Curve_g2fdo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.919708, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_r8rko"]
+texture_mode = 1
+curve = SubResource("Curve_g2fdo")
+
+[sub_resource type="Gradient" id="Gradient_8173d"]
+offsets = PackedFloat32Array(0.39919356, 0.54435486, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.04622054, 0.04622054, 1, 0.8025197, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8173d"]
+gradient = SubResource("Gradient_8173d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_auehf"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 8.0
+direction = Vector3(0, -1, 0)
+spread = 170.0
+initial_velocity_min = 25.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 350, 0)
+attractor_interaction_enabled = false
+scale_min = 0.9
+scale_max = 1.75
+color_initial_ramp = SubResource("GradientTexture1D_8173d")
+alpha_curve = SubResource("CurveTexture_r8rko")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="BirdDeathEffect" type="Node2D" unique_id=1482049238]
+z_index = 4096
+
+[node name="Explosion" type="Node2D" parent="." unique_id=857282763]
+script = ExtResource("1_g2fdo")
+exponent = 0.1
+impulse = 175.0
+vertical_impulse = 250.0
+max_torque = 30.0
+
+[node name="Meat" parent="Explosion" unique_id=1572017581 instance=ExtResource("2_g2fdo")]
+physics_interpolation_mode = 1
+position = Vector2(-5.2739964, -5.352282)
+rotation = -1.5707964
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat6" parent="Explosion" unique_id=757575644 instance=ExtResource("2_g2fdo")]
+physics_interpolation_mode = 1
+position = Vector2(-3.0391426, 6.4697104)
+rotation = 3.1415925
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat7" parent="Explosion" unique_id=489297049 instance=ExtResource("2_g2fdo")]
+physics_interpolation_mode = 1
+position = Vector2(2, 7)
+rotation = 1.5707964
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat5" parent="Explosion" unique_id=878755325 instance=ExtResource("2_g2fdo")]
+physics_interpolation_mode = 1
+position = Vector2(0.27399635, -7.273998)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat2" parent="Explosion" unique_id=456840763 instance=ExtResource("3_r8rko")]
+physics_interpolation_mode = 1
+position = Vector2(-0.07828522, 2.31314)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat3" parent="Explosion" unique_id=1225471470 instance=ExtResource("4_8173d")]
+physics_interpolation_mode = 1
+position = Vector2(-5.2348557, 1.1565695)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Meat4" parent="Explosion" unique_id=1367182166 instance=ExtResource("5_xupsk")]
+physics_interpolation_mode = 1
+position = Vector2(5.2917004, 4.1565695)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Beak" parent="Explosion" unique_id=61409827 instance=ExtResource("6_auehf")]
+physics_interpolation_mode = 1
+position = Vector2(4, 0)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Beak2" parent="Explosion" unique_id=1763722634 instance=ExtResource("7_6tvt2")]
+physics_interpolation_mode = 1
+position = Vector2(7, 0)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Eye" parent="Explosion" unique_id=1021921384 instance=ExtResource("1_w2wml")]
+physics_interpolation_mode = 1
+position = Vector2(5.117426, -3.1174273)
+collision_layer = 8
+collision_mask = 10
+
+[node name="Eye2" parent="Explosion" unique_id=974236357 instance=ExtResource("1_w2wml")]
+physics_interpolation_mode = 1
+position = Vector2(-2, -2)
+collision_layer = 8
+collision_mask = 10
+
+[node name="FeatherParticles" type="GPUParticles2D" parent="." unique_id=683174383]
+z_index = -1
+material = SubResource("CanvasItemMaterial_pipv8")
+amount = 128
+texture = SubResource("AtlasTexture_4dpi7")
+lifetime = 20.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5cm5d")
+script = ExtResource("10_r8rko")
+
+[node name="BloodParticles" type="GPUParticles2D" parent="." unique_id=820311819]
+z_index = 1
+emitting = false
+amount = 256
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_auehf")
+script = ExtResource("10_r8rko")
+
+[node name="CrashSound" type="AudioStreamPlayer" parent="." unique_id=1817003667]
+stream = ExtResource("11_xupsk")
+autoplay = true
+
+[node name="SplatterSound" type="AudioStreamPlayer" parent="." unique_id=799634539]
+stream = ExtResource("12_auehf")
+autoplay = true

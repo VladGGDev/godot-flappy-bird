@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://mhpxfvpk4kyi"]
+
+[ext_resource type="Texture2D" uid="uid://cydssc8c3fene" path="res://assets/sprites/Bird.png" id="1_u2iio"]
+
+[node name="Meat2" type="RigidBody2D" unique_id=456840763]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=21134070]
+polygon = PackedVector2Array(-1, 2, -3, -1, 1, -2, 2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=539233625]
+texture = ExtResource("1_u2iio")
+region_enabled = true
+region_rect = Rect2(24, 8, 8, 8)

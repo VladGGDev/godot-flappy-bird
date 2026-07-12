@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dcyjtr66b08m8"]
+
+[ext_resource type="AudioStream" uid="uid://cbpv6cfqdlim1" path="res://assets/sounds/Journey_song by Timoor.mp3" id="1_l2vpe"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1049981622]
+stream = ExtResource("1_l2vpe")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bfrh6vyk117uk"]
+
+[ext_resource type="Texture2D" uid="uid://rsd8m3w6jicl" path="res://assets/sprites/Cloud.png" id="1_jmyer"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmyer"]
+radius = 22.022715
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ksla3"]
+polygon = PackedVector2Array(-99, -34, -113, -16, -125, -21, -141, -17, -153, -2, -142, 20, -118, 25, -104, 5, -84, 11, -73, 5, -60, 27, -33, 20, -7, 22, 16, 12, 30, 28, 53, 27, 64, 12, 86, 26, 109, 12, 133, 30, 151, 24, 153, -7, 140, -14, 122, -15, 110, -5, 98, -15, 85, -20, 72, -15, 62, -3, 45, -15, 29, -13, 19, -3, 12, -14, 3, -22, -17, -19, -28, -4, -37, -13, -55, -17, -67, -11, -76, -31)
+
+[node name="CloudLayer" type="Node2D" unique_id=1640348932]
+z_index = 1
+
+[node name="Graphics" type="Node2D" parent="." unique_id=2073673176]
+
+[node name="Cloud" type="Sprite2D" parent="Graphics" unique_id=1727871611]
+position = Vector2(-127, 4)
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud2" type="Sprite2D" parent="Graphics" unique_id=1071586672]
+position = Vector2(-91, -9)
+rotation = 1.5707964
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud3" type="Sprite2D" parent="Graphics" unique_id=651093186]
+position = Vector2(-48, 7)
+rotation = -1.5707964
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud4" type="Sprite2D" parent="Graphics" unique_id=2052222605]
+position = Vector2(1, 2)
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud5" type="Sprite2D" parent="Graphics" unique_id=1985487206]
+position = Vector2(43, 9)
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud6" type="Sprite2D" parent="Graphics" unique_id=1531746738]
+position = Vector2(92, 4)
+texture = ExtResource("1_jmyer")
+
+[node name="Cloud7" type="Sprite2D" parent="Graphics" unique_id=559135934]
+position = Vector2(137, 6)
+rotation = 1.5707964
+texture = ExtResource("1_jmyer")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=498229706]
+collision_layer = 16777215
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2029274047]
+position = Vector2(-127, 2)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=359244756]
+position = Vector2(-89, -11)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=846707819]
+position = Vector2(-51, 6)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=658384850]
+position = Vector2(-5, 0)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1649378558]
+position = Vector2(40, 7)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=186195773]
+position = Vector2(86, 3)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1664407841]
+position = Vector2(132, 7)
+shape = SubResource("CircleShape2D_jmyer")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2040519345]
+occluder = SubResource("OccluderPolygon2D_ksla3")

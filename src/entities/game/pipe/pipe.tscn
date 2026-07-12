@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dlj7j2vkfwcu4"]
+
+[ext_resource type="Texture2D" uid="uid://b6ti5x4ronbb2" path="res://assets/sprites/Pipe.png" id="1_8x3ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x3ej"]
+size = Vector2(28, 256)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_infdx"]
+polygon = PackedVector2Array(-15, 0, -15, 256, 15, 256, 15, 0)
+
+[node name="Pipe" type="Node2D" unique_id=1143572685]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1673840039]
+position = Vector2(0, 64)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Pipe" type="Sprite2D" parent="StaticBody2D" unique_id=1316586525]
+texture_repeat = 3
+texture = ExtResource("1_8x3ej")
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="PipeElongation" type="Sprite2D" parent="StaticBody2D" unique_id=8595114]
+texture_repeat = 3
+position = Vector2(0, 128)
+scale = Vector2(1, -1)
+texture = ExtResource("1_8x3ej")
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=499311629]
+position = Vector2(0, 63.5)
+shape = SubResource("RectangleShape2D_8x3ej")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1071920253]
+occluder = SubResource("OccluderPolygon2D_infdx")

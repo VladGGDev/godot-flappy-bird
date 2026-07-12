@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://8di8ked54anj"]
+
+[ext_resource type="Script" uid="uid://cyq30aw64bvkp" path="res://src/entities/ui/button/change_scene_button.gd" id="1_4ux21"]
+[ext_resource type="Script" uid="uid://bjgjaj7f4ucnr" path="res://src/entities/ui/menus/main_menu.gd" id="1_srsvs"]
+[ext_resource type="PackedScene" uid="uid://b52cbuy4efebh" path="res://src/entities/ui/button/button.tscn" id="1_vivct"]
+[ext_resource type="Script" uid="uid://cl48ivodhl636" path="res://src/entities/ui/button/enable_menu_button.gd" id="3_osdni"]
+[ext_resource type="Script" uid="uid://07uo1hofp37c" path="res://src/entities/ui/button/exit_game_button.gd" id="5_6ut4k"]
+
+[node name="MainMenu" type="MarginContainer" unique_id=709507485 node_paths=PackedStringArray("sound_slider", "music_slider")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_srsvs")
+sound_slider = NodePath("OptionsVBoxContainer/SountSliderContainer/SoundSlider")
+music_slider = NodePath("OptionsVBoxContainer/MusicSliderContainer/MusicSlider")
+
+[node name="MenuVBoxContainer" type="VBoxContainer" parent="." unique_id=1933008050]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="MenuVBoxContainer" unique_id=1135792354]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "Flappy Bird"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="MenuVBoxContainer" unique_id=1258256768]
+layout_mode = 2
+
+[node name="PlayButton" parent="MenuVBoxContainer/ButtonsVBoxContainer" unique_id=1312087119 instance=ExtResource("1_vivct")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("1_4ux21")
+scene_path = "uid://c0ukjt25xialk"
+
+[node name="OptionsButton" parent="MenuVBoxContainer/ButtonsVBoxContainer" unique_id=1761037267 node_paths=PackedStringArray("all_menus", "enable_menu") instance=ExtResource("1_vivct")]
+layout_mode = 2
+text = "Options"
+script = ExtResource("3_osdni")
+all_menus = [NodePath("../.."), NodePath("../../../OptionsVBoxContainer")]
+enable_menu = NodePath("../../../OptionsVBoxContainer")
+fade_duration = 1.0
+
+[node name="ExitButton" parent="MenuVBoxContainer/ButtonsVBoxContainer" unique_id=1334479393 instance=ExtResource("1_vivct")]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("5_6ut4k")
+
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="." unique_id=1457413084]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" parent="OptionsVBoxContainer" unique_id=922377962 node_paths=PackedStringArray("all_menus", "enable_menu") instance=ExtResource("1_vivct")]
+layout_mode = 2
+size_flags_horizontal = 0
+text = " < Back "
+alignment = 0
+script = ExtResource("3_osdni")
+enable_on_ready = true
+all_menus = [NodePath("../../MenuVBoxContainer"), NodePath("..")]
+enable_menu = NodePath("../../MenuVBoxContainer")
+fade_duration = 1.0
+
+[node name="SountSliderContainer" type="HBoxContainer" parent="OptionsVBoxContainer" unique_id=123517897]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsVBoxContainer/SountSliderContainer" unique_id=1897978560]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Sound"
+
+[node name="SoundSlider" type="HSlider" parent="OptionsVBoxContainer/SountSliderContainer" unique_id=2134101303]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.75
+
+[node name="MusicSliderContainer" type="HBoxContainer" parent="OptionsVBoxContainer" unique_id=504229358]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsVBoxContainer/MusicSliderContainer" unique_id=1775005977]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="OptionsVBoxContainer/MusicSliderContainer" unique_id=622818816]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.75
+
+[node name="FullscreenButton" parent="OptionsVBoxContainer" unique_id=861896788 instance=ExtResource("1_vivct")]
+layout_mode = 2
+text = "Toggle fullscreen"
+
+[node name="ClearSaveButton" parent="OptionsVBoxContainer" unique_id=325212921 instance=ExtResource("1_vivct")]
+layout_mode = 2
+text = "Clear save"
+
+[connection signal="value_changed" from="OptionsVBoxContainer/SountSliderContainer/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="OptionsVBoxContainer/MusicSliderContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="OptionsVBoxContainer/FullscreenButton" to="." method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="OptionsVBoxContainer/ClearSaveButton" to="." method="_on_clear_save_button_pressed"]

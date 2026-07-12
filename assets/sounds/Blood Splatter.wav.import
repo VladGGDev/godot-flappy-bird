@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://devl84ma77elq"
+path="res://.godot/imported/Blood Splatter.wav-3e0c158a23ddb0e1cfbbdb0e3a5b55bd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Blood Splatter.wav"
+dest_files=["res://.godot/imported/Blood Splatter.wav-3e0c158a23ddb0e1cfbbdb0e3a5b55bd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

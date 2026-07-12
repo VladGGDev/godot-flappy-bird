@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://c0ukjt25xialk"]
+
+[ext_resource type="PackedScene" uid="uid://enka6wakk8k7" path="res://src/entities/game/bird/bird.tscn" id="1_1finq"]
+[ext_resource type="Script" uid="uid://7oanl6e060d3" path="res://src/entities/game/pipe/pipe_spawner.gd" id="2_fvx5g"]
+[ext_resource type="PackedScene" uid="uid://7wxfbdedilxt" path="res://src/entities/game/pipe/pipe_pair.tscn" id="3_7crau"]
+[ext_resource type="Script" uid="uid://vlpbdy268xyk" path="res://src/entities/ui/score/score_display.gd" id="4_jk5uj"]
+[ext_resource type="PackedScene" uid="uid://bfrh6vyk117uk" path="res://src/entities/game/cloud/cloud_layer.tscn" id="5_l3vwk"]
+[ext_resource type="Script" uid="uid://byoxg8cg7pfgi" path="res://src/entities/ui/menus/pause_menu.gd" id="6_61oyq"]
+[ext_resource type="PackedScene" uid="uid://b52cbuy4efebh" path="res://src/entities/ui/button/button.tscn" id="6_rm6tb"]
+[ext_resource type="Script" uid="uid://cyq30aw64bvkp" path="res://src/entities/ui/button/change_scene_button.gd" id="7_61oyq"]
+[ext_resource type="Script" uid="uid://bno7vbjr5uyi" path="res://src/entities/ui/menus/game_over_menu.gd" id="9_61oyq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61oyq"]
+bg_color = Color(0, 0, 0, 0.29411766)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 3
+
+[node name="GameScene" type="Node2D" unique_id=2128129139]
+
+[node name="Bird" parent="." unique_id=538714923 instance=ExtResource("1_1finq")]
+position = Vector2(-63, 0)
+jump_height = 35.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=200002989]
+limit_enabled = false
+
+[node name="PipeSpawner" type="Node2D" parent="." unique_id=276610308 node_paths=PackedStringArray("timer")]
+position = Vector2(175, 0)
+script = ExtResource("2_fvx5g")
+pipe_scene = ExtResource("3_7crau")
+timer = NodePath("Timer")
+max_height_variation = 65.0
+
+[node name="Timer" type="Timer" parent="PipeSpawner" unique_id=1776126634]
+wait_time = 1.5
+
+[node name="Clouds" type="Node2D" parent="." unique_id=1836171540]
+
+[node name="CloudLayer" parent="Clouds" unique_id=1640348932 instance=ExtResource("5_l3vwk")]
+position = Vector2(0, 139)
+
+[node name="CloudLayer2" parent="Clouds" unique_id=452181617 instance=ExtResource("5_l3vwk")]
+position = Vector2(0, -148)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1948340869]
+z_index = 99
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = -117.0
+offset_right = 40.0
+offset_bottom = -76.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_type_variation = &"BigLabel"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("4_jk5uj")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1180055737 node_paths=PackedStringArray("color_rect")]
+process_mode = 3
+visible = false
+follow_viewport_scale = 2.0
+script = ExtResource("6_61oyq")
+color_rect = NodePath("ColorRectBackground")
+
+[node name="ColorRectBackground" type="ColorRect" parent="PauseMenu" unique_id=1441730813]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2509804)
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/ColorRectBackground" unique_id=2059340898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/ColorRectBackground/MarginContainer" unique_id=365831465]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PausedLabel" type="Label" parent="PauseMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=2126649282]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" parent="PauseMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=1312087119 instance=ExtResource("6_rm6tb")]
+layout_mode = 2
+text = "Resume"
+
+[node name="MainMenuButton" parent="PauseMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=1352725159 instance=ExtResource("6_rm6tb")]
+layout_mode = 2
+text = "Main menu"
+script = ExtResource("7_61oyq")
+scene_path = "uid://dvbqg2rwfa10a"
+
+[node name="GameOverMenu" type="CanvasLayer" parent="." unique_id=966696523 node_paths=PackedStringArray("color_rect")]
+process_mode = 3
+follow_viewport_scale = 2.0
+script = ExtResource("9_61oyq")
+color_rect = NodePath("ColorRectBackground")
+tween_wait = 2.0
+
+[node name="ColorRectBackground" type="ColorRect" parent="GameOverMenu" unique_id=667596392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2509804)
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverMenu/ColorRectBackground" unique_id=847133196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer" unique_id=990289723]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PausedLabel" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=1645446252]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "Game over!"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=507415078]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_61oyq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer" unique_id=1732313800]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=1853103150]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1670119907]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Score:"
+
+[node name="ScoreLabel" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1188215854]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "#"
+script = ExtResource("4_jk5uj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer" unique_id=131238334]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1244269113]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Highscore:"
+
+[node name="HighscoreLabel" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=215625908]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+text = "#"
+script = ExtResource("4_jk5uj")
+show_high_score = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=424565583]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_61oyq")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2" unique_id=811690938]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="GridContainer" type="GridContainer" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer" unique_id=312790157]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer" unique_id=1074053770]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score:"
+
+[node name="ScoreLabel" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer" unique_id=1226459493]
+layout_mode = 2
+text = "##"
+script = ExtResource("4_jk5uj")
+
+[node name="Label2" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer" unique_id=1790323164]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highscore:"
+
+[node name="HighscoreLabel" type="Label" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/GridContainer" unique_id=124756230]
+layout_mode = 2
+text = "#"
+script = ExtResource("4_jk5uj")
+show_high_score = true
+
+[node name="RetryButton" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=663842414 instance=ExtResource("6_rm6tb")]
+layout_mode = 2
+text = "Retry"
+
+[node name="MainMenuButton" parent="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer" unique_id=13735280 instance=ExtResource("6_rm6tb")]
+layout_mode = 2
+text = "Main menu"
+script = ExtResource("7_61oyq")
+scene_path = "uid://dvbqg2rwfa10a"
+
+[connection signal="body_entered" from="Bird" to="Bird" method="_on_body_entered"]
+[connection signal="ended_game" from="Bird" to="PipeSpawner" method="_on_bird_ended_game"]
+[connection signal="ended_game" from="Bird" to="PauseMenu" method="_on_bird_ended_game"]
+[connection signal="ended_game" from="Bird" to="GameOverMenu" method="_on_bird_ended_game"]
+[connection signal="started_game" from="Bird" to="PipeSpawner" method="_on_bird_started_game"]
+[connection signal="started_game" from="Bird" to="PauseMenu" method="_on_bird_started_game"]
+[connection signal="timeout" from="PipeSpawner/Timer" to="PipeSpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/ColorRectBackground/MarginContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="GameOverMenu/ColorRectBackground/MarginContainer/VBoxContainer/RetryButton" to="GameOverMenu" method="_on_retry_button_pressed"]
